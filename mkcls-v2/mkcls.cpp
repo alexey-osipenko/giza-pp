@@ -40,6 +40,7 @@ USA.
 #include "SAOptimization.h"
 #include "HCOptimization.h"
 
+#include "compat/compat.h"
 
 double SigmaVerfaelschung=5.0;
 int OneWithHapas=1;

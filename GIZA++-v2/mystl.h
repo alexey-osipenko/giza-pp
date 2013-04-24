@@ -25,9 +25,8 @@ using namespace _STL;
 #include <ext/hash_map>
 using __gnu_cxx::hash_map;
 #else
-#include <tr1/unordered_map>
+#include <unordered_map>
 #define hash_map unordered_map
-using namespace std::tr1;
 #endif
 
 #include <vector>

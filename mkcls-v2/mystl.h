@@ -27,7 +27,7 @@ USA.
 #define MY_STL_H_DEFINED
 #include <string>
 #include <utility>
-#include <tr1/unordered_map>
+#include <unordered_map>
 #include <cmath>
 
 using namespace std;

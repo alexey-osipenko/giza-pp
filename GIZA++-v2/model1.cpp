@@ -141,6 +141,10 @@ extern float MINCOUNTINCREASE;
 void model1::em_loop(int it,Perplexity& perp, sentenceHandler& sHandler1, bool seedModel1, 
 		     bool dump_alignment, const char* alignfile, Dictionary& dict, bool useDict, Perplexity& viterbi_perp, bool test)
 {
+  const int M_MAX = 20;
+  const int L_MAX = 20;
+  bool indict[M_MAX + 1][L_MAX + 1];
+
   WordIndex i, j, l, m ;
   double cross_entropy;
   int pair_no=0 ;
@@ -163,9 +167,11 @@ void model1::em_loop(int it,Perplexity& perp, sentenceHandler& sHandler1, bool s
     Vector<WordIndex> viterbi_alignment(fs.size());
     double viterbi_score = 1 ;
 
-    bool eindict[l + 1];
-    bool findict[m + 1];
-    bool indict[m + 1][l + 1];
+    vector<bool> eindict(l + 1);
+    vector<bool> findict(m + 1);
+    if (m > M_MAX || l > L_MAX)
+        throw std::runtime_error("model1.em_loop: Exceeded limit L_MAX or M_MAX");
+
     if(it == 1 && useDict){
       for(unsigned int dummy = 0; dummy <= l; dummy++) eindict[dummy] = false;
       for(unsigned int dummy = 0; dummy <= m; dummy++){

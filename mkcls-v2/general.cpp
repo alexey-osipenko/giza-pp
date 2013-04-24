@@ -72,6 +72,8 @@ void zufallSeed(int z)
 {
 #ifdef NeXT
   srandom(z);
+#elif defined(WIN32)
+  srand(z);
 #else
   srand48(z);
 #endif
@@ -83,6 +85,8 @@ double zufall01()
 {
 #ifdef NeXT
   return (double)(random()%65536)/65536.0;
+#elif defined(WIN32)
+  return (double)rand() / RAND_MAX;
 #else
   return drand48();
 #endif
@@ -107,6 +111,21 @@ int randomInt(int exclusive)
   return i;
 }
 
+#ifdef WIN32
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
+double clockSec()
+{
+  FILETIME creation, exit, kernel, user;
+  GetProcessTimes(GetCurrentProcess(), &creation, &exit, &kernel, &user);
+  LONGLONG time = (LONGLONG(user.dwHighDateTime) << 32) + user.dwLowDateTime;
+  return time / 10000000.0;
+}
+
+#else // !WIN32
+
 double clockSec()
 {
 #ifdef linux
@@ -118,3 +137,5 @@ double clockSec()
   getrusage(who, &rusage);
   return rusage.ru_utime.tv_sec+rusage.ru_utime.tv_usec/1000000.0;
 }
+
+#endif // WIN32 / !WIN32

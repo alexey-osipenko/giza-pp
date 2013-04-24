@@ -25,9 +25,10 @@ USA.
 
 #ifndef myleda_HEADER_defined
 #define myleda_HEADER_defined
+#include <iterator>
 #include <map>
 #include <set>
-#include <tr1/unordered_map>
+#include <unordered_map>
 #include "myassert.h"
 #include "FixedArray.h"
 using namespace std;

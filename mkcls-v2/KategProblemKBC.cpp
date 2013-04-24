@@ -26,6 +26,7 @@ USA.
 
 #include <stdlib.h>
 #include "KategProblem.h"
+#include "compat/compat.h"
 
 double rhoLo=0.75; 
 #define MAX_VERFAELSCHUNG 5000

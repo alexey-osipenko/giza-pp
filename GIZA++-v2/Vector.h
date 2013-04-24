@@ -131,7 +131,7 @@ template<class T> class Vector
       return *this;
     }
   
-  Vector<T>& operator=(Vector<T>&x)
+/* LEXA: Vector<T>& operator=(Vector<T>&x)
     {
       if( this!= &x )
 	{
@@ -150,7 +150,7 @@ template<class T> class Vector
 #endif			
 	}
       return *this;
-    }
+    } */
   
   void allowAccess(int n) 
     { 

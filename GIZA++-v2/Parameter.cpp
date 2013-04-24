@@ -25,6 +25,7 @@ USA.
 #include <unistd.h>
 #include <sstream>
 
+#include "compat/compat.h"
 
 bool absolutePathNames=0;
 string ParameterPathPrefix;
