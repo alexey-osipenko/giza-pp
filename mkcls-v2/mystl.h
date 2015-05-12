@@ -33,7 +33,6 @@ USA.
 using namespace std;
 
 namespace std {
- namespace tr1 {
   template <typename T, typename V>
   struct hash<pair<T, V> > {
     static inline void hash_combine(std::size_t & seed, const T & v) {
@@ -48,7 +47,6 @@ namespace std {
       return h;
     }
   };
- }
 }
 
 #define over_string(a,i) for(unsigned int i=0;i<a.length();i++)

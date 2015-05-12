@@ -111,7 +111,7 @@ public:
 };
 
 inline int Hash(int value) { return value; }
-#define MY_HASH_BASE std::tr1::unordered_map<A,B>
+#define MY_HASH_BASE std::unordered_map<A,B>
 
 template<class A,class B>
 class leda_h_array : public MY_HASH_BASE
