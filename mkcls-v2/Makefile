@@ -5,7 +5,7 @@ OBJS = GDAOptimization.o HCOptimization.o Problem.o \
             KategProblemWBC.o KategProblem.o StatVar.o general.o \
             mkcls.o
 
-CFLAGS = -Wall -W -DNDEBUG -O3 -funroll-loops
+CFLAGS = -std=c++11 -Wall -W -DNDEBUG -O3 -funroll-loops -I..
 
 .cpp.o:
 	$(CXX) $(CFLAGS) -c $< -o $@

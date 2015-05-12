@@ -190,6 +190,9 @@ public:
     *find(e,f)=CPPair(cval,pval);
   }
   CPPair*getPtr(int e,int f){return find(e,f);}
+// oldf is used only in an assertion - don't warn when assertions are not used
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
   tmodel(const string&fn)
     {
       int count=0,count2=0;
@@ -224,6 +227,7 @@ public:
       count2+=lexmat[olde]->capacity();      
       cout << "There are " << count << " " << count2 << " entries in table" << '\n';
     }
+#pragma GCC diagnostic pop
 
 
   /*  tmodel(const string&fn)
